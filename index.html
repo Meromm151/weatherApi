@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="css/all.min.css">
+  <!-- bootstarp -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- main style -->
+  <link rel="stylesheet" href="css/main.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark" style="height: 100px;">
+    <div class="container">
+      <a class="navbar-brand" href="#">Weather</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link mx-3 active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="#">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="#">Live cameras</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="#">Photos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="#">Contact</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+  <main
+    style="background-image:linear-gradient(#0000006c , #0000006c), url(../image/weather-images.jpg);background-position: center;background-size: cover;padding-block: 60px;">
+    <div class="container text-light ">
+      <form class="form-control d-flex align-items-center justify-content-center border-0 bg-transparent">
+        <input id="search" type="text" class="form-control d-inline-block w-75 rounded-5 bg-dark text-light p-3 "
+          placeholder="Find your location">
+      </form>
+      <div id="weatherDisplay" class="my-5 rounded-2 overflow-hidden" style="background-color: #323544;">
+        <div class="row justify-content-between">
+          <div class="col-md-4 p-0">
+            <div class="today">
+              <div class="p-2 px-4 d-flex justify-content-between" style="background-color: #2D303D;">
+                <span class="week-day"></span>
+                <span class="date"></span>
+              </div>
+              <div class="info p-4">
+                <span class="city"></span>
+                <div class="temp">
+                  <span style="font-size: 120px; display: block;">16.8</span>
+                  <img src="" alt="" class="d-block">
+                  <span class="condition text-primary">Sunny</span>
+                </div>
+                <div class="footer w-100 py-3 d-flex">
+                  <div class="rainPossibility pe-4">
+                    <i class="fa-solid fa-umbrella"></i>
+                    <span>20%</span>
+                  </div>
+                  <div class="windSpead pe-4">
+                    <i class="fa-solid fa-wind"></i>
+                    <span>18</span>
+                  </div>
+                  <div class="windDirec">
+                    <i class="fa-regular fa-compass"></i>
+                    <span>east</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 p-0">
+            <div class="tomorrow" style="background-color: #262936;">
+              <div class="p-2 px-4 d-flex justify-content-center" style="background-color: #222530;">
+                <span class="week-day">Monday</span>
+              </div>
+              <div class="info p-4">
+                <span class="city">Cairo</span>
+                <div class="temp">
+                  <span style="font-size: 120px; display: block;">16.8</span>
+                  <i class="fa-solid fa-sun d-block fs-1 text-warning p-3"></i>
+                  <span class="condition text-primary">Sunny</span>
+                </div>
+                <div class="footer w-100 py-3 d-flex">
+                  <div class="rainPossibility pe-4">
+                    <i class="fa-solid fa-umbrella"></i>
+                    <span>20%</span>
+                  </div>
+                  <div class="windSpead pe-4">
+                    <i class="fa-solid fa-wind"></i>
+                    <span>18</span>
+                  </div>
+                  <div class="windDirec">
+                    <i class="fa-regular fa-compass"></i>
+                    <span>east</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 p-0">
+            <div class="next-day">
+              <div class="p-2 px-4 d-flex justify-content-between" style="background-color: #2D303D;">
+                <span class="week-day">Monday</span>
+                <span class="date">1January</span>
+              </div>
+              <div class="info p-4">
+                <span class="city">Cairo</span>
+                <div class="temp">
+                  <span style="font-size: 120px; display: block;">16.8</span>
+                  <i class="fa-solid fa-sun d-block fs-1 text-warning p-3"></i>
+                  <span class="condition text-primary">Sunny</span>
+                </div>
+                <div class="footer w-100 py-3 d-flex">
+                  <div class="rainPossibility pe-4">
+                    <i class="fa-solid fa-umbrella"></i>
+                    <span>20%</span>
+                  </div>
+                  <div class="windSpead pe-4">
+                    <i class="fa-solid fa-wind"></i>
+                    <span>18</span>
+                  </div>
+                  <div class="windDirec">
+                    <i class="fa-regular fa-compass"></i>
+                    <span>east</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer style="background-color: #262936; padding-block: 60px;">
+    <div class="container text-light">
+      <div class="row">
+        <div class="col-md-10">
+          <div>
+            <form class="form-control border-0 bg-transparent p-0">
+              <input class="form-control rounded-5 bg-dark p-3 w-75" type="text"
+                placeholder="Enter your Email to subscribe...">
+            </form>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div>
+            <ul class="list-unstyled d-flex fs-3">
+              <li>
+                <a href="">
+                  <i class="fa-brands fa-facebook p-2"></i>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa-brands fa-twitter p-2"></i>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa-brands fa-google p-2"></i>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa-brands fa-pinterest p-2"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-10 text-secondary mt-3">
+          <p>
+            Copyright 2014 Company name. Designed by Themezy. All rights reserved
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- bootstrap JS -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
