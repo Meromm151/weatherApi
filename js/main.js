@@ -1,4 +1,14 @@
-currentWeather("banha")
+let ip = new XMLHttpRequest();
+ip.open("get",`https://api.ipify.org?format=json`);
+ip.send();
+ip.addEventListener("readystatechange", () => {
+  if (ip.readyState === 4 && ip.status === 200) {
+    //getting response
+    let ipv4 = JSON.parse(ip.response);
+    currentWeather(ipv4.ip)
+  }
+});
+
 // sellectors
 
 let today={
