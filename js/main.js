@@ -1,5 +1,5 @@
 let ip = new XMLHttpRequest();
-ip.open("get",`https://api.ipify.org?format=json`);
+ip.open("get",`https://api.ipify.org?format=json/`);
 ip.send();
 ip.addEventListener("readystatechange", () => {
   if (ip.readyState === 4 && ip.status === 200) {
@@ -43,7 +43,7 @@ search.addEventListener("input", () => {
 // api
 function currentWeather(city) {
   let searchApi = new XMLHttpRequest();
-  searchApi.open("get",`http://api.weatherapi.com/v1/forecast.json?key=03cb5eaf98dd4afbac163840240101&q=${city}&days=3`);
+  searchApi.open("get",`http://api.weatherapi.com/v1/forecast.json?key=03cb5eaf98dd4afbac163840240101&q=${city}&days=3/`);
   searchApi.send();
   searchApi.addEventListener("readystatechange", () => {
     if (searchApi.readyState === 4 && searchApi.status === 200) {
