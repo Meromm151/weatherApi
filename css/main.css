@@ -1,3 +1,46 @@
 ::placeholder{
   color: gray !important;
 }
+.current-temp , .big-temp , .small-temp{
+position: relative;
+width: fit-content;
+}
+
+.big-temp::after , .current-temp::after ,.small-temp::after {
+content: "o";
+position: absolute;
+}
+.current-temp::after{
+  top: 0;
+  right: -40px;
+  font-size: 45px;
+}
+.big-temp::after{
+  top: 0;
+  right: -10px;
+  font-size: 15px;
+}
+.small-temp::after{
+  top: 0;
+  right: -10px;
+  font-size: 10px;
+}
+.big-temp::before,.current-temp::before,.small-temp::before{
+content: "c";
+position: absolute;
+}
+.big-temp::before{
+  top: 0;
+  right: -20px;
+  font-size: 25px;
+}
+.current-temp::before{
+  top: 0;
+  right: -80px;
+  font-size: 85px;
+}
+.small-temp::before{
+  top: 0;
+  right: -20px;
+  font-size: 15px;
+}

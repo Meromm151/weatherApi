@@ -50,7 +50,7 @@
         <input id="search" type="text" class="form-control d-inline-block w-75 rounded-5 bg-dark text-light p-3 "
           placeholder="Find your location">
       </form>
-      <div id="weatherDisplay" class="my-5 rounded-2 overflow-hidden" style="background-color: #323544;">
+      <div class="my-5 rounded-2 overflow-hidden" style="background-color: #323544;">
         <div class="row justify-content-between">
           <div class="col-md-4 p-0">
             <div class="today">
@@ -61,7 +61,7 @@
               <div class="info p-4">
                 <span class="city"></span>
                 <div class="temp">
-                  <span style="font-size: 120px; display: block;">16.8</span>
+                  <span class="current-temp" style="font-size: 120px; display: block;">16.8</span>
                   <img src="" alt="" class="d-block">
                   <span class="condition text-primary">Sunny</span>
                 </div>
@@ -83,60 +83,31 @@
             </div>
           </div>
           <div class="col-md-4 p-0">
-            <div class="tomorrow" style="background-color: #262936;">
-              <div class="p-2 px-4 d-flex justify-content-center" style="background-color: #222530;">
-                <span class="week-day">Monday</span>
+            <div class="tomorrow d-flex h-100 text-center flex-column">
+              <div class="p-2 px-4 " style="background-color: #222530;">
+                <span class="week-day"></span>
               </div>
-              <div class="info p-4">
-                <span class="city">Cairo</span>
+              <div class="info p-4 flex-grow-1 d-flex justify-content-center align-items-center" style="background-color: #262936;">
                 <div class="temp">
-                  <span style="font-size: 120px; display: block;">16.8</span>
-                  <i class="fa-solid fa-sun d-block fs-1 text-warning p-3"></i>
+                  <img src="" alt="" class="d-block">
+                  <span class="h2 d-block big-temp">16.8</span>
+                  <span class="h6 d-block small-temp">16.8</span>
                   <span class="condition text-primary">Sunny</span>
-                </div>
-                <div class="footer w-100 py-3 d-flex">
-                  <div class="rainPossibility pe-4">
-                    <i class="fa-solid fa-umbrella"></i>
-                    <span>20%</span>
-                  </div>
-                  <div class="windSpead pe-4">
-                    <i class="fa-solid fa-wind"></i>
-                    <span>18</span>
-                  </div>
-                  <div class="windDirec">
-                    <i class="fa-regular fa-compass"></i>
-                    <span>east</span>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-4 p-0">
-            <div class="next-day">
-              <div class="p-2 px-4 d-flex justify-content-between" style="background-color: #2D303D;">
-                <span class="week-day">Monday</span>
-                <span class="date">1January</span>
+            <div class="next-day d-flex h-100 text-center flex-column">
+              <div class="p-2 px-4 " style="background-color: #2D303D;">
+                <span class="week-day"></span>
               </div>
-              <div class="info p-4">
-                <span class="city">Cairo</span>
+              <div class="info p-4 flex-grow-1 d-flex justify-content-center align-items-center" style="background-color: #323544;">
                 <div class="temp">
-                  <span style="font-size: 120px; display: block;">16.8</span>
-                  <i class="fa-solid fa-sun d-block fs-1 text-warning p-3"></i>
+                  <img src="" alt="" class="d-block">
+                  <span class="h2 d-block big-temp">16.8</span>
+                  <span class="h6 d-block small-temp">16.8</span>
                   <span class="condition text-primary">Sunny</span>
-                </div>
-                <div class="footer w-100 py-3 d-flex">
-                  <div class="rainPossibility pe-4">
-                    <i class="fa-solid fa-umbrella"></i>
-                    <span>20%</span>
-                  </div>
-                  <div class="windSpead pe-4">
-                    <i class="fa-solid fa-wind"></i>
-                    <span>18</span>
-                  </div>
-                  <div class="windDirec">
-                    <i class="fa-regular fa-compass"></i>
-                    <span>east</span>
-                  </div>
                 </div>
               </div>
             </div>

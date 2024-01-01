@@ -1,62 +1,73 @@
-// vars
-let search = document.getElementById("search");
-let todayWeekDay = document.querySelector("#weatherDisplay .today .week-day");
-let todayDate = document.querySelector("#weatherDisplay .today .date");
-let city = document.querySelector("#weatherDisplay .today .city");
-let temp = document.querySelector("#weatherDisplay .today .temp span");
-let iconImg = document.querySelector("#weatherDisplay .today .temp img");
-let condition = document.querySelector(
-  "#weatherDisplay .today .temp .condition"
-);
+currentWeather("banha")
+// sellectors
 
+let today={
+  weekDay:document.querySelector(".today .week-day"),
+  date:document.querySelector(".today .date"),
+  city:document.querySelector(".today .city"),
+  temp:document.querySelector(".today .temp span"),
+  iconImg:document.querySelector(".today .temp img"),
+  condition:document.querySelector(".today .temp .condition")
+}
+let tomorrow ={
+  weekDay:document.querySelector(".tomorrow .week-day"),
+  bigTemp:document.querySelector(".tomorrow .big-temp"),
+  smallTemp:document.querySelector(".tomorrow .small-temp"),
+  iconImg:document.querySelector(".tomorrow .temp img"),
+  condition:document.querySelector(".tomorrow .temp .condition")
+}
+let nextDay ={
+  weekDay:document.querySelector(".next-day .week-day"),
+  bigTemp:document.querySelector(".next-day .big-temp"),
+  smallTemp:document.querySelector(".next-day .small-temp"),
+  iconImg:document.querySelector(".next-day .temp img"),
+  condition:document.querySelector(".next-day .temp .condition")
+}
+let myday=[today , tomorrow , nextDay]
 // input listener
 search.addEventListener("input", () => {
   var city = search.value;
-  api(city);
+  currentWeather(city)
 });
 
 // api
-function api(city) {
+function currentWeather(city) {
   let searchApi = new XMLHttpRequest();
-  searchApi.open(
-    "get",
-    `http://api.weatherapi.com/v1/current.json?key=03cb5eaf98dd4afbac163840240101&q=${city}`
-  );
+  searchApi.open("get",`http://api.weatherapi.com/v1/forecast.json?key=03cb5eaf98dd4afbac163840240101&q=${city}&days=3`);
   searchApi.send();
   searchApi.addEventListener("readystatechange", () => {
     if (searchApi.readyState === 4 && searchApi.status === 200) {
       //getting response
-      let fullInfoObject = JSON.parse(searchApi.responseText);
-      console.log(fullInfoObject);
-      display(fullInfoObject);
+      let fullInfoObject = JSON.parse(searchApi.response);
+      let dateNow = new Date(fullInfoObject.location.localtime);
+      displayCurrentWeather(fullInfoObject,dateNow)
+      displayForcast(fullInfoObject);
     }
   });
 }
-
-function display(fullInfoObject) {
+function displayCurrentWeather(fullInfoObject,dateNow) {
+  // getting today data
   let week = ["sunday","monday","tuseday","wednesday","thursday","frieday","suterday",];
   let month=["January" , "February" , "March" , "April" , "May" , "June" , "July" , "August" , "September" , "October" , "November" , "December"]
   // formating and getting date
-  let dateNow= new Date(fullInfoObject.current.last_updated);
-  todayWeekDay.innerHTML =week[dateNow.getDay()];
-  todayDate.innerHTML =dateNow.getDate() + month[dateNow.getMonth()]
+  today.weekDay.innerHTML =week[dateNow.getDay()];
+  today.date.innerHTML =dateNow.getDate() + month[dateNow.getMonth()]
   //getting city , tempriture ,day condition and day condition icon
-  city.innerHTML = fullInfoObject.location.name;
-  temp.innerHTML = fullInfoObject.current.temp_c;
-  iconImg.src = fullInfoObject.current.condition.icon;
-  condition.innerHTML = fullInfoObject.current.condition.text;
+  today.city.innerHTML = fullInfoObject.location.name;
+  today.temp.innerHTML = fullInfoObject.current.temp_c;
+  today.iconImg.src = fullInfoObject.current.condition.icon;
+  today.condition.innerHTML = fullInfoObject.current.condition.text;
 }
-
-function getIPFromAmazon() {
-  // let ip = new XMLHttpRequest();
-  // ip.open("get" , "https://checkip.amazonaws.com/")
-  fetch("https://checkip.amazonaws.com/").then(res => res.text()).then(data => console.log(data))
-  // ip.send();
-  // ip.addEventListener("readystatechange", ()=>{
-  //   if (ip.readyState === 4 && ip.status === 200) {
-  //     console.log(ip.responseText)
-  //   }
-  // })
+function displayForcast(fullInfoObject){
+  console.log(fullInfoObject)
+  let week = ["sunday","monday","tuseday","wednesday","thursday","frieday","suterday",];
+  for(let i = 1 ; i < myday.length ; i++){
+    // console.log(myday[i])
+    let date=new Date(fullInfoObject.forecast.forecastday[i].date);
+    myday[i].weekDay.innerHTML = week[date.getDay()];
+    myday[i].bigTemp.innerHTML = fullInfoObject.forecast.forecastday[i].day.maxtemp_c;
+    myday[i].smallTemp.innerHTML = fullInfoObject.forecast.forecastday[i].day.mintemp_c;
+    myday[i].iconImg.src = fullInfoObject.forecast.forecastday[i].day.condition.icon;
+    myday[i].condition.innerHTML = fullInfoObject.forecast.forecastday[i].day.condition.text;
+  }
 }
-
-getIPFromAmazon()
